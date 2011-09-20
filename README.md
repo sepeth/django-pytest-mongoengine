@@ -6,11 +6,13 @@ to use pytest & mongoengine testrunner with django, instead of
 django's default database functionality.
 
 To use it,
+
 - add it to your python path,
 - add *django_pytest_mongoengine* to your installed apps.
 - set test database name in settings.py (*TEST_DB*)
 - set the *TEST_RUNNER = 'django_pytest_mongoengine.test_runner.run_tests'* setting.
 - create a conftest.py in your project directory and include:
+
     from django_pytest_mongoengine.conftest import (pytest_funcarg__client,
         pytest_funcarg__django_client, pytest_funcarg__user, pytest_funcarg__admin)
 
@@ -20,9 +22,9 @@ Now anywhere in your project, you can create files called
 after each test and to provide you with a django test client object identical
 to the one used in django's test system. For example:
 
-def test_filter(client):
-    response = client.get('/browse/', {'filter': '1'})
-    assert response.status_code == 200
+    def test_filter(client):
+        response = client.get('/browse/', {'filter': '1'})
+        assert response.status_code == 200
 
 Use *./manage.py test* to run the py.test test runs (ie: it replaces the
 standard django test runner). You can pass py.test options to the command
