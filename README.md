@@ -13,8 +13,10 @@ To use it,
 - set the *TEST_RUNNER = 'django_pytest_mongoengine.test_runner.run_tests'* setting.
 - create a conftest.py in your project directory and include:
 
+
     from django_pytest_mongoengine.conftest import (pytest_funcarg__client,
-        pytest_funcarg__django_client, pytest_funcarg__user, pytest_funcarg__admin)
+    pytest_funcarg__django_client, pytest_funcarg__user, pytest_funcarg__admin)
+
 
 Now anywhere in your project, you can create files called
 *test_<something>.py*.  These are standard py.test test files. Use the funcarg
